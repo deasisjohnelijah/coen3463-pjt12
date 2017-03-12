@@ -1,0 +1,169 @@
+extends layout
+
+block content
+    .js
+        #preloader
+        img.w3-display.left(src='/images/newicon.png' style='height:60px;width:150px;margin-left:50px;position:absolute;')
+        nav
+        
+          ul 
+            
+            li
+              a(href='/') 
+
+                strong HOME 
+            li
+              a(href='/items') 
+                strong BUY AN ITEM
+            li
+              a(href='/items/add') 
+                strong SELL AN ITEM
+            
+        .button
+           a.btn-open(href='#')
+        .overlay
+          .wrap
+            ul.wrap-nav
+              li
+                a(href='#') About
+                ul
+                  li
+                    a(href='#') About Us
+                  li
+                    a(href='#') Contact Us
+                  li
+                    a(href='#') Help Center
+              li
+                a(href='#') Buy an Item
+                ul
+                  li
+                    a(href='#') Motors
+                  li
+                    a(href='#') Microcontrollers
+                  li
+                    a(href='#') Sensors
+                  li
+                    a(href='#') Tools and Equipments
+                  li
+                    a(href='#') Integrated Circuits
+                  li
+                    a(href='#') Circuit Boards
+                  li
+                    a(href='#') Electronic Components
+                  li
+                    a(href='#') Electrical Components
+                  li
+                    a(href='#') Kits and Module Cases
+                  li
+                    a(href='#') Projects
+                  li
+                    a(href='#') Others
+                  li
+                    a(href='#') -View All-
+
+              li
+                a(href='/profile')  @#{user.username}
+                ul
+                  if (user)
+                      li
+                        
+                        a(href='/profile')
+                          .profile-card_header-imgbox
+                             img(src='#{user.photo}' style='height:100px;width:140px;')
+                      li
+                        a(href='#') Edit Profile
+                      li
+                        a(href='/auth/logout') Logout
+                  else
+                      li
+                        a(href='/auth/login') Login
+                      li
+                        a(href='/auth/register') Sign Up
+            .social
+              a(href='http://mario-loncarek.from.hr/')
+                .social-icon
+                  i.fa.fa-facebook
+              a(href='#')
+                .social-icon
+                  i.fa.fa-twitter
+              a(href='#')
+                .social-icon
+                  i.fa.fa-codepen
+              a(href='#')
+                .social-icon
+                  i.fa.fa-behance
+              a(href='#')
+                .social-icon
+                  i.fa.fa-dribbble
+              p
+                | © 2017 COEN 3463 Team 12
+                br
+                |  Site: 
+                a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
+        .content
+          #form._form
+              form(action='/items/add', method='POST', enctype='multipart/form-data')
+                fieldset
+                  legend WHAT ARE YOU SELLING?
+                  input(type='text', name='name', placeholder='ex. Arduino Uno')
+                fieldset
+                  legend PRICE
+                  input(type='text', name='price', placeholder='ex. Php 700.00, Php 100-300, Negotiable')
+                fieldset
+                  legend DESCRIPTION
+                  textarea(name='description') Write something about the item ...
+                fieldset
+                  legend CATEGORY
+                  label.input-select
+                    select(name='category')
+                      option(selected='selected') - Select a category-
+                      option(value='Motors') Motors
+                      option(value='Microcontrollers') Microcontrollers
+                      option(value='Sensors') Sensors 
+                      option(value='Tools and Equipments') Tools and Equipments
+                      option(value='Integrated Circuits') Integrated Circuits
+                      option(value='Circuit Boards') Circuit Boards
+                      option(value='Electronic Components') Electronic Components
+                      option(value='Electrical Components') Electrical Components
+                      option(value='Kits and Modules Cases') Kits and Modules Cases
+                      option(value='Projects') Projects
+                      option(value='Others') Others
+                fieldset
+                  legend STATUS
+                  label.input-check
+                    input(type='radio', name='status', value='Old and Not Functional')
+                    span Old and Not Functional
+                  label.input-check
+                    input(type='radio', name='status', value='Old but Functional')
+                    span Old but Functional 
+                  label.input-check
+                    input(type='radio', name='status', value='Old but Never Used')
+                    span Old but Never Used
+                  label.input-check
+                    input(type='radio', name='status', value='Newly bought but Used')
+                    span Newly bought but Used
+                  label.input-check
+                    input(type='radio', name='status', value='Newly bought but Never Used')
+                    span Newly bought but Never Used
+                fieldset
+                 legend UPLOAD IMAGE
+                  
+                 a(href='https://postimage.io/' target='_blank')
+                    span Click here to upload image and get image url!
+                fieldset
+                  legend IMAGE URL
+                  input(type='text', name='imageUrl', placeholder='ex. https://s3.postimg.org/fqk6gjdkz/icon.png')
+                fieldset
+                  legend SELLER DETAILS
+                  strong USERNAME 
+                    i.fa.fa-user
+                  input.w3-orange(type='text', name='sellername', value='#{user.username}', readonly)
+                  strong EMAIL 
+                    i.fa.fa-envelope
+                  input.w3-orange(type='text', name='selleremail', value='#{user.email}', readonly)
+                  strong CONTACT NO. 
+                    i.fa.fa-phone
+                  input.w3-orange(type='text', name='sellercontact', value='#{user.contact}', readonly)
+                input(type='submit', name='submit', value='SELL ITEM')
+
+

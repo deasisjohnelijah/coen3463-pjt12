@@ -1,0 +1,122 @@
+extends layout
+
+block content
+    .js
+        #preloader
+        img.w3-display.left(src='/images/newicon.png' style='height:60px;width:150px;margin-left:50px;position:absolute;')
+        nav
+        
+          ul 
+            
+            li
+              a(href='/') 
+
+                strong HOME 
+            li
+              a(href='/items') 
+                strong BUY AN ITEM
+            li
+              a(href='/items/add') 
+                strong SELL AN ITEM
+            
+        .button
+           a.btn-open(href='#')
+
+        .overlay
+          .wrap
+            ul.wrap-nav
+              li
+                a(href='#') About
+                ul
+                  li
+                    a(href='#') About Us
+                  li
+                    a(href='#') Contact Us
+                  li
+                    a(href='#') Help Center
+              li
+                a(href='#') Buy an Item
+                ul
+                  li
+                    a(href='#') Motors
+                  li
+                    a(href='#') Microcontrollers
+                  li
+                    a(href='#') Sensors
+                  li
+                    a(href='#') Tools and Equipments
+                  li
+                    a(href='#') Integrated Circuits
+                  li
+                    a(href='#') Circuit Boards
+                  li
+                    a(href='#') Electronic Components
+                  li
+                    a(href='#') Electrical Components
+                  li
+                    a(href='#') Kits and Module Cases
+                  li
+                    a(href='#') Projects
+                  li
+                    a(href='#') Others
+                  li
+                    a(href='#') -View All-
+
+              li
+                a(href='/profile')  @#{user.username}
+                ul
+                  if (user)
+                      li
+                        
+                        a(href='/profile')
+                          .profile-card_header-imgbox
+                             img(src='#{user.photo}' style='height:100px;width:140px;')
+                      li
+                        a(href='#') Edit Profile
+                      li
+                        a(href='/auth/logout') Logout
+                  else
+                      li
+                        a(href='/auth/login') Login
+                      li
+                        a(href='/auth/register') Sign Up
+            .social
+              a(href='http://mario-loncarek.from.hr/')
+                .social-icon
+                  i.fa.fa-facebook
+              a(href='#')
+                .social-icon
+                  i.fa.fa-twitter
+              a(href='#')
+                .social-icon
+                  i.fa.fa-codepen
+              a(href='#')
+                .social-icon
+                  i.fa.fa-behance
+              a(href='#')
+                .social-icon
+                  i.fa.fa-dribbble
+              p
+                | © 2017 COEN 3463 Team 12
+                br
+                |  Site: 
+                a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
+        
+        .content
+         .side_wrapper
+          section.about-dev
+            header.profile-card_header
+              .profile-card_header-container
+                .profile-card_header-imgbox
+                  img(src='#{user.photo}', alt='Profile Pic')
+                h1
+                  | #{user.username}
+                  span #{user.email}
+            .profile-card_about
+              h2 #{user.first_name} #{user.last_name}
+              p
+                | I'm an aspiring ruler of hoomans from Chicago, looking for my fur-ever home. I like treats and playing and treats. And treat            I'd do well in a home where hoomans give me lots of treats!
+              footer.profile-card_footer
+                .social-row
+                p
+                  a.back-to-profile(href='#') Edit Profile

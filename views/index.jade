@@ -1,0 +1,111 @@
+extends layout
+
+block content
+    .js
+        #preloader
+        img.w3-display.left(src='/images/newicon.png' style='height:60px;width:150px;margin-left:50px;position:absolute;')
+        nav
+        
+          ul 
+            
+            li
+              a(href='/') 
+
+                strong HOME	
+            li
+              a(href='/items') 
+                strong BUY AN ITEM
+            li
+              a(href='/items/add') 
+                strong SELL AN ITEM
+            
+        .button
+           a.btn-open(href='#')
+        
+          
+        .overlay
+          .wrap
+            ul.wrap-nav
+              li
+                a(href='#') About
+                ul
+                  li
+                    a(href='#') About Us
+                  li
+                    a(href='#') Contact Us
+                  li
+                    a(href='#') Help Center
+              li
+                a(href='#') Buy an Item
+                ul
+                  li
+                    a(href='#') Motors
+                  li
+                    a(href='#') Microcontrollers
+                  li
+                    a(href='#') Sensors
+                  li
+                    a(href='#') Tools and Equipments
+                  li
+                    a(href='#') Integrated Circuits
+                  li
+                    a(href='#') Circuit Boards
+                  li
+                    a(href='#') Electronic Components
+                  li
+                    a(href='#') Electrical Components
+                  li
+                    a(href='#') Kits and Module Cases
+                  li
+                    a(href='#') Projects
+                  li
+                    a(href='#') Others
+                  li
+                    a(href='#') -View All-
+            
+              li
+                if (user)
+                  a(href='/profile')  @#{user.username}
+                else
+                  a(href='/auth/login') Join Us Now!
+                ul
+                  if (user)
+                      li
+                        
+                        a(href='/profile')
+                          .profile-card_header-imgbox
+                             img(src='#{user.photo}' style='height:100px;width:140px;')
+                      li
+                        a(href='#') Edit Profile
+                      li
+                        a(href='/auth/logout') Logout
+                  else
+                      li
+                        a(href='/auth/login') Login
+                      li
+                        a(href='/auth/register') Sign Up
+                  
+            .social
+              a(href='http://mario-loncarek.from.hr/')
+                .social-icon
+                  i.fa.fa-facebook
+              a(href='#')
+                .social-icon
+                  i.fa.fa-twitter
+              a(href='#')
+                .social-icon
+                  i.fa.fa-codepen
+              a(href='#')
+                .social-icon
+                  i.fa.fa-behance
+              a(href='#')
+                .social-icon
+                  i.fa.fa-dribbble
+              p
+                | © 2017 COEN 3463 Team 12
+                br
+                |  Site: 
+                a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
+        .content
+         
+
