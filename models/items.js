@@ -74,38 +74,11 @@ var ItemSchema = new Schema({
     type: String,
     default: 'None specified'
   }, 
-   
-  editorname: String,
-   
-  editoremail: {
-    type: String,
-    default: 'None specified'
-  },
-  editorcontact: {
-    type: String,
-    default: 'Anonymous'
-  },
+  createdate: {
 
-  editorfirst_name:{
-    type: String,
-    default: 'Anonymous'
+    type: Date,
   },
-  editorlast_name:{
-    type: String,
-    default: 'Anonymous'
-  },
-  editorschool:{
-    type: String,
-    default: 'Anonymous'
-  },
-  editorphoto:{
-    type: String,
-    default: 'https://mbevivino.files.wordpress.com/2011/08/silhouette_orange.jpg'
-  },
-  editorfacebook:{
-    type: String,
-    default: 'None specified'
-  }, 
+  updatedate: String,
    // seller:{
 
   //       type: Schema.Types.ObjectId, ref: 'User',

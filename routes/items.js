@@ -33,8 +33,8 @@ router.post('/add', function(req, res) {
       category: req.body.category,
       status: req.body.status,
       imageUrl1: req.body.imageUrl1,
-      imageUrl2: req.body.imageUrl1,
-      imageUrl3: req.body.imageUrl1,
+      imageUrl2: req.body.imageUrl2,
+      imageUrl3: req.body.imageUrl3,
       sellername: req.body.sellername,
       sellerfirst_name: req.body.sellerfirst_name,
       sellerlast_name: req.body.sellerlast_name,
@@ -43,6 +43,7 @@ router.post('/add', function(req, res) {
       sellerphoto:req.body.sellerphoto,
       sellerschool:req.body.sellerschool,
       sellerfacebook:req.body.sellerfacebook,
+      createdate: moment().tz("Asia/Manila").format('LLL'),
       // user: user,
       // contact: req.body.contact,
       // zomato: req.body.zomato,
@@ -183,14 +184,8 @@ router.route('/:item_id/edit')
     item.editorphoto = req.body.editorphoto;
     item.editorschool = req.body.editorschool;
     item.editorfacebook = req.body.editorfacebook;
-    editorfirst_name: req.body.editorfirst_name;
-    editorlast_name:req.body.editorlast_name;
-    editoremail: req.body.editoremail;
-    editorcontact: req.body.editorcontact;
-    editorphoto: req.body.editorphoto;
-    editorschool: req.body.editorschool;
-    editorfacebook: req.body.editorfacebook;
-    // restaurant.contact = req.body.contact;
+    item.updatedate = moment().tz("Asia/Manila").format('LLL'),
+         // restaurant.contact = req.body.contact;
     // restaurant.zomato = req.body.zomato;
     // restaurant.photo = req.body.photo;
     // restaurant.photoslink = req.body.photoslink;

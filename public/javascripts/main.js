@@ -42,12 +42,12 @@
 if (window.location.pathname === '/items') {
   
   if (localStorage.getItem("search") === 'null' || localStorage.getItem("search") === null) {
-      fetch('/api/v1/Item/?sort=name').then(function(res) {
+      fetch('/api/v1/Item/?sort=-createdate').then(function(res) {
         res.json().then(function(items) {
           console.log('items', items);
           var tbody = document.getElementById('table-body');
           items.forEach(function(item) {
-            tbody.insertAdjacentHTML('beforeend', '<tr> <td><img src="'+ item.imageUrl + '" style="max-width:150px"></td> <td>  <a href="/items/' + item._id + '">' + item.name + '</a></td> <td> ' + item.status + '</td> <td>' + item.sellername + ' </td> <td> ' + item.price + ' </td> </tr>');
+            tbody.insertAdjacentHTML('beforeend', '<tr> <td><img src="'+ item.imageUrl1 + '" style="max-width:150px"></td> <td>  <a href="/items/' + item._id + '">' + item.name + '</a></td> <td> ' + item.status + '</td> <td>' + item.sellername + ' </td> <td> ' + item.category + '</td><td> ' + item.price + ' </td> </tr>');
 
           });
         })

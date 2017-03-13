@@ -117,7 +117,7 @@ block content
                     i.product_name.fa.fa-shopping-cart 
                     span.product_price #{item.price}
                     br
-                    span.product_name #{item.name}
+                    h1.product_name #{item.name}
                     p of: #{item.sellername}
                     .product-options
                       strong CATEGORY
@@ -143,9 +143,6 @@ block content
                       img(src='#{item.imageUrl3}', alt='', style='width:300px;margin-top:10%;')
                       h3 DESCRIPTION
                       h5 #{item.description}
-                      if (item.editorname)
-                        h5 Last edited by: #{item.editorname}
-                      else
 
                     li
                       h3.w3-orange.w3-center SELLER DETAILS
