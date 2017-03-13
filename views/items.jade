@@ -62,7 +62,10 @@ block content
                     a(href='#') -View All-
 
               li
-                a(href='/profile')  @#{user.username}
+                if (user)
+                  a(href='/profile')  @#{user.username}
+                else
+                  a(href='/auth/login') Join Us Now!
                 ul
                   if (user)
                       li
@@ -99,5 +102,35 @@ block content
                 | © 2017 COEN 3463 Team 12
                 br
                 |  Site: 
-                a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
+                a(href='#') 
         .content
+            
+            form(method= 'post', action= '/items', onsubmit= 'getSearch()')
+                    .wrapsearch
+                          .search
+                            input.searchTerm(type='search', placeholder='What are you looking for?')
+                            label.searchButton(for='search')
+                              i.fa.fa-search
+                        //- .input-field
+                        //-   input#search(type='search', placeholder="Find a restaurant")
+                        //-   label(for= 'search')
+                        //-     i.fa.fa-search.small          
+
+            section.w3-text-black
+              h1 CPE ITEMS
+              h2#count.w3-large 
+              h2#findcount.w3-large 
+              .tbl-header
+                table(cellpadding='0', cellspacing='0', border='0')
+                  thead
+                    tr
+                      th Photo
+                      th Item Name
+                      th Status
+                      th Seller
+                      th Price
+              .tbl-content
+                table(cellpadding='0', cellspacing='0', border='0')
+                  tbody#table-body
+
+            

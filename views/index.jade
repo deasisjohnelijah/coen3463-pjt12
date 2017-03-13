@@ -107,5 +107,36 @@ block content
                 |  Site: 
                 a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
         .content
+            header#myHeader.w3-container.w3-padding
+              .w3-center
+                if (user)
+                    h4 WELCOME TO OUR WEB APP, #{user.username}!
+                    h1.w3-xxxlarge.w3-animate-bottom YOU CAN BUY AND SELL AN ITEM HERE!
+                    .w3-padding-32
+                      button.w3-btn.w3-xlarge.w3-dark-grey.w3-hover-light-grey(onclick="document.getElementById('id01').style.display='block'", style='font-weight:900;') SELL YOUR ITEM NOW!
+                else 
+                    h4 LOGIN NOW TO ACCESS THE APP!
+                    h1.w3-xxxlarge.w3-animate-bottom YOU CAN BUY AND SELL AN ITEM HERE!
+                    .w3-padding-32
+                      a(href='/auth/login')
+                        button.w3-btn.w3-xlarge.w3-dark-grey.w3-hover-light-grey(style='font-weight:900;') GO TO LOGIN
+            #id01.w3-modal
+                  .w3-modal-content.w3-card-8.w3-animate-top
+                    header.w3-container.w3-theme-l1
+                      span.w3-closebtn(onclick="document.getElementById('id01').style.display='none'") ×
+                      h4 Attention! Please make sure your profile page is edited
+                      h5
+                        | So buyers can properly contact you 
+                        i.fa.fa-smile-o
+                    .w3-padding
+                      p Add your correct contact no. and email address
+                      p
+                        | Go to your
+                        a.w3-btn(href='/profile') PROFILE NOW
+                        |  or proceed to
+                        a.w3-btn(href='/items/add') SELLING AN ITEM
+                    footer.w3-container.w3-theme-l1
+                      p Thank you for your cooperation!
+
          
 

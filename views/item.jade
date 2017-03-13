@@ -1,0 +1,183 @@
+extends layout
+
+block content
+    .js
+        #preloader
+        img.w3-display.left(src='/images/newicon.png' style='height:60px;width:150px;margin-left:50px;position:absolute;')
+        nav
+        
+          ul 
+            
+            li
+              a(href='/') 
+
+                strong HOME	
+            li
+              a(href='/items') 
+                strong BUY AN ITEM
+            li
+              a(href='/items/add') 
+                strong SELL AN ITEM
+            
+        .button
+           a.btn-open(href='#')
+        .overlay
+          .wrap
+            ul.wrap-nav
+              li
+                a(href='#') About
+                ul
+                  li
+                    a(href='#') About Us
+                  li
+                    a(href='#') Contact Us
+                  li
+                    a(href='#') Help Center
+              li
+                a(href='#') Buy an Item
+                ul
+                  li
+                    a(href='#') Motors
+                  li
+                    a(href='#') Microcontrollers
+                  li
+                    a(href='#') Sensors
+                  li
+                    a(href='#') Tools and Equipments
+                  li
+                    a(href='#') Integrated Circuits
+                  li
+                    a(href='#') Circuit Boards
+                  li
+                    a(href='#') Electronic Components
+                  li
+                    a(href='#') Electrical Components
+                  li
+                    a(href='#') Kits and Module Cases
+                  li
+                    a(href='#') Projects
+                  li
+                    a(href='#') Others
+                  li
+                    a(href='#') -View All-
+
+              li
+                if (user)
+                  a(href='/profile')  @#{user.username}
+                else
+                  a(href='/auth/login') Join Us Now!
+                ul
+                  if (user)
+                      li
+                        
+                        a(href='/profile')
+                          .profile-card_header-imgbox
+                             img(src='#{user.photo}' style='height:100px;width:140px;')
+                      li
+                        a(href='#') Edit Profile
+                      li
+                        a(href='/auth/logout') Logout
+                  else
+                      li
+                        a(href='/auth/login') Login
+                      li
+                        a(href='/auth/register') Sign Up
+            .social
+              a(href='http://mario-loncarek.from.hr/')
+                .social-icon
+                  i.fa.fa-facebook
+              a(href='#')
+                .social-icon
+                  i.fa.fa-twitter
+              a(href='#')
+                .social-icon
+                  i.fa.fa-codepen
+              a(href='#')
+                .social-icon
+                  i.fa.fa-behance
+              a(href='#')
+                .social-icon
+                  i.fa.fa-dribbble
+              p
+                | © 2017 COEN 3463 Team 12
+                br
+                |  Site: 
+                a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
+        .content(style="margin-bottom:10%;")
+          #make-3D-space(style="")
+            #product-card
+              #product-front
+                .shadow
+                img(src='#{item.imageUrl1}', alt='', style='width:300px;margin-top:10%;')
+                .image_overlay
+                #view_details View details
+                .stats
+                  .stats-container
+                    
+                    i.product_name.fa.fa-shopping-cart 
+                    span.product_price #{item.price}
+                    br
+                    span.product_name #{item.name}
+                    p of: #{item.sellername}
+                    .product-options
+                      strong CATEGORY
+                      span #{item.category}
+                      strong STATUS
+                      span #{item.status}
+                      br
+                      if user.username == item.sellername
+                         
+                           a.w3-btn.w3-large.w3-padding(href='/items/' + item._id+'/edit') EDIT ITEM
+                           
+                      else
+                         
+
+              #product-back
+                .shadow
+                #carousel
+                  ul
+                    li
+                      img(src='#{item.imageUrl1}', alt='', style='width:300px;margin-top:10%;')
+                      img(src='#{item.imageUrl2}', alt='', style='width:300px;margin-top:10%;')
+                    li.w3-center
+                      img(src='#{item.imageUrl3}', alt='', style='width:300px;margin-top:10%;')
+                      h3 DESCRIPTION
+                      h5 #{item.description}
+                      if (item.editorname)
+                        h5 Last edited by: #{item.editorname}
+                      else
+
+                    li
+                      h3.w3-orange.w3-center SELLER DETAILS
+                      header.profile-card_header
+                        .profile-card_header-container
+                          .profile-card_header-imgbox
+                            img(src='#{item.sellerphoto}', alt='Profile Pic')
+                          h1
+                            | #{item.sellername}
+                            span #{item.selleremail}
+                      .profile-card_about
+                        h2 #{item.sellerfirst_name} #{item.sellerlast_name}
+                        p
+                          i.fa.fa-facebook  
+                            a(href='#item.sellerfacebook', target='_blank') #{item.sellerfacebook}
+                          h6 SCHOOL: #{item.sellerschool}
+                          h6 CONTACT NO.: #{item.sellercontact}
+                          h6 Contact me now if you want to buy the product!
+                        p.w3-center
+                          if user.username == item.sellername
+                         
+                           a.w3-btn.w3-large.w3-padding(href='/items/' + item._id+'/delete') DELETE ITEM
+                           
+                          else
+
+                  .arrows-perspective
+                    .carouselPrev
+                      .y
+                      .x
+                    .carouselNext
+                      .y
+                      .x
+                #flip-back
+                  #cy
+                  #cx

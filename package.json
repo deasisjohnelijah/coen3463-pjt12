@@ -29,6 +29,7 @@
     "passport-local-mongoose": "^4.0.0",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
+    "sessionstore": "^1.2.18",
     "uuid": "^3.0.1"
   }
 }

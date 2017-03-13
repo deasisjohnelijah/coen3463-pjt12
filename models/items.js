@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var moment = require('moment-timezone');
-
+var User = require('./user');
 var ItemSchema = new Schema({
 
   // id is created automatically
@@ -23,31 +23,109 @@ var ItemSchema = new Schema({
     type: String,
     required: [true, 'Please select a Category']},
   status: String,
-  imageUrl: {
+  imageUrl1: {
 
         type: String,
+        default: 'http://fileserver.buh.edu.vn/2016/12/no_image-14_18_42_477.png'
 
     },
-  sellername: String,
-  selleremail: String,
-  sellercontact: String,
-  user:{
+  imageUrl2: {
 
-        type: Schema.Types.ObjectId, ref: 'User',
-
-        required: [true,"User id is undefined"]
+        type: String,
+        default: 'http://fileserver.buh.edu.vn/2016/12/no_image-14_18_42_477.png'
 
     },
-  // contact: String,
-  // zomato: String,
-  // photo: String,
-  // photoslink: String,
-  // createdate: {
+  imageUrl3: {
 
-  //   type: Date,
-  // },
-  // updatedate: String,
+        type: String,
+        default: 'http://fileserver.buh.edu.vn/2016/12/no_image-14_18_42_477.png'
+
+    },
+  sellername: {
+    type: String,
+    default: 'Anonymous'
+  },
+  selleremail: {
+    type: String,
+    default: 'None specified'
+  },
+  sellercontact: {
+    type: String,
+    default: 'Anonymous'
+  },
+
+  sellerfirst_name:{
+    type: String,
+    default: 'Anonymous'
+  },
+  sellerlast_name:{
+    type: String,
+    default: 'Anonymous'
+  },
+  sellerschool:{
+    type: String,
+    default: 'Anonymous'
+  },
+  sellerphoto:{
+    type: String,
+    default: 'https://mbevivino.files.wordpress.com/2011/08/silhouette_orange.jpg'
+  },
+  sellerfacebook:{
+    type: String,
+    default: 'None specified'
+  }, 
+   
+  editorname: String,
+   
+  editoremail: {
+    type: String,
+    default: 'None specified'
+  },
+  editorcontact: {
+    type: String,
+    default: 'Anonymous'
+  },
+
+  editorfirst_name:{
+    type: String,
+    default: 'Anonymous'
+  },
+  editorlast_name:{
+    type: String,
+    default: 'Anonymous'
+  },
+  editorschool:{
+    type: String,
+    default: 'Anonymous'
+  },
+  editorphoto:{
+    type: String,
+    default: 'https://mbevivino.files.wordpress.com/2011/08/silhouette_orange.jpg'
+  },
+  editorfacebook:{
+    type: String,
+    default: 'None specified'
+  }, 
+   // seller:{
+
+  //       type: Schema.Types.ObjectId, ref: 'User',
+
+  //       required: [true,"User id is undefined"]
+
+  //   },
+
 
 });
+
+// ItemSchema.post('remove', (todo)=>{  //everytime a remove is called
+
+//     User.findById(item.user, function (err, user) {  //grab the to then query the user
+
+//         user.items.pull(todo); //pull the todo from the todos of the user
+
+//         user.save(); //then save
+
+//     });
+// });
 
 module.exports = mongoose.model('Item', ItemSchema);

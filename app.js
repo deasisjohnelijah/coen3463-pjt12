@@ -15,11 +15,8 @@ const restify = require('express-restify-mongoose');
 const router = express.Router();
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var auth = require('./routes/auth');
 var items = require('./routes/items');
-var about = require('./routes/about');
-var home = require('./routes/home');
 
 
 var MongoURI = 'mongodb://elijahdeasis:elijahdeasis30@ds111469.mlab.com:11469/coen3463-t12'
@@ -39,12 +36,20 @@ app.use(cookieParser());
 app.use(methodOverride())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: false,
-    cookie: {
-            "maxAge": 86400000,
-        }
+   secret: 'This is a secret',
+
+  cookie: {
+
+    maxAge: 1000 * 60 * 60
+
+  },
+
+
+
+  resave: true,
+
+  saveUninitialized: true
+        
 
 }));
 
@@ -75,11 +80,8 @@ restify.serve(router, Item);
 app.use(router);
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/auth/', auth);
-app.use('/about',about);
 app.use('/items/', items);
-app.use('/home', home);
 
 app.get('/search', function(req, res){
 

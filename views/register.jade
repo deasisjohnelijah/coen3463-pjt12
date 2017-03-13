@@ -1,29 +1,45 @@
 extends loginlayout
 
 block content
-   form(role='form' action='/auth/register' method='post')
-      img.image-logo(src='/images/logo.png')
-      .group.w3-center
-        if (error)
-            strong.w3-text-red #{error}
-      .group
-      .group
-        input(type='text' name='username')
-        span.highlight
-        span.bar
-        label Username
-      .group
-        input#password(type='password' name='password')
-        span.highlight
-        span.bar
-        label Password
-      .group
-        input(type='text' name='email')
-        span.highlight
-        span.bar
-        label Email
-      button.button.buttonBlue(type='submit' onclick='return val();')
-        | Register
-        .ripples.buttonRipples
-          span.ripplesCircle
+  .js
+    #preloader
+    
+    nav
+    
+      ul 
+        
+       
+        li
+          a(href='/auth/login') 
+            strong LOG IN
+        li
+          a(href='/auth/register') 
+            strong SIGN UP
+
+    .content
+             form(role='form' action='/auth/register' method='post')
+                img.image-logo(src='/images/logo.png')
+                .group.w3-center
+                  if (error)
+                      strong.w3-text-red #{error}
+                .group
+                .group
+                  input(type='text' name='username')
+                  span.highlight
+                  span.bar
+                  label Username
+                .group
+                  input#password(type='password' name='password')
+                  span.highlight
+                  span.bar
+                  label Password
+                .group
+                  input(type='text' name='email')
+                  span.highlight
+                  span.bar
+                  label Email
+                button.button.buttonBlue(type='submit' onclick='return val();')
+                  | Register
+                  .ripples.buttonRipples
+                    span.ripplesCircle
 

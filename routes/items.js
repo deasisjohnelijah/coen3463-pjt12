@@ -3,17 +3,7 @@ var router = express.Router();
 var moment = require('moment-timezone');
 var Item= require('../models/items');
 var uuid = require('uuid/v4');
-
-var multer = require('multer');
-var storage = multer.diskStorage({
-  destination: function(req,file,cb){
-    cb(null, 'public/uploads/')
-  },
-  filename: function(req,file,cb){
-    cb(null,file.originalname);
-  }
-})
-var upload = multer({storage: storage});
+var User = require('../models/user');
 
 
 router.use(function(req, res, next) {
@@ -33,15 +23,27 @@ router.post('/', function(req, res){
   res.redirect('/items') 
 }); 
 
-router.post('/add', upload.any(), function(req, res) {
-    new Item({
+router.post('/add', function(req, res) {
+    const item = new Item({
+
+
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
       category: req.body.category,
       status: req.body.status,
-      upload: req.body.upload,
-      imageUrl: req.body.imageUrl,
+      imageUrl1: req.body.imageUrl1,
+      imageUrl2: req.body.imageUrl1,
+      imageUrl3: req.body.imageUrl1,
+      sellername: req.body.sellername,
+      sellerfirst_name: req.body.sellerfirst_name,
+      sellerlast_name: req.body.sellerlast_name,
+      selleremail: req.body.selleremail,
+      sellercontact: req.body.sellercontact,
+      sellerphoto:req.body.sellerphoto,
+      sellerschool:req.body.sellerschool,
+      sellerfacebook:req.body.sellerfacebook,
+      // user: user,
       // contact: req.body.contact,
       // zomato: req.body.zomato,
       // photo: req.body.photo,
@@ -55,8 +57,66 @@ router.post('/add', upload.any(), function(req, res) {
         res.redirect('/items');
       }
     })
+    // user.items.push(item);
+    // user.save
 });
 
+// router.post('/add', (req,res)=>{
+//       console.log(req.body.user)
+//     User.findById(req.body.user, (err, user)=>{
+//         if(!req.user){
+//             return res.json({
+//                 success: false,
+//                 title: 'Unauthorized'
+//             });
+//         }
+//         if(!user || err){
+//           console.log(err)
+//              return res.json({
+//                 success: false,
+//                 title: 'Error',
+//                 response: 'Error occured'
+//             });
+//         }
+//         console.log("user found");
+//         console.log(user);
+
+//         const item = new Item({
+//             name: req.body.name,
+//             price: req.body.price,
+//             description: req.body.description,
+//             category: req.body.category,
+//             status: req.body.status,
+//             upload: req.body.upload,
+//             imageUrl: req.body.imageUrl,
+//             sellername: req.body.sellername,
+//             selleremail: req.body.selleremail,
+//             sellercontact: req.body.sellercontact,
+//             user: user,
+            
+//         });
+//         item.save((err,todo)=>{
+//             if(err){
+//                 console.log("onerror save");
+//                 console.log(err)
+//                res.json({
+//                     success: false,
+//                     title: 'Error',
+//                     response: err.errors.name.message
+//                 });
+//                 return; 
+//             }
+//             user.items.push(todo);
+//             user.save();
+//             console.log("success");
+//             res.status(201).json({
+//                 success:true,
+//                 title: 'Success',
+//                 response: todo
+//             });
+//         });
+//     });
+// });
 router.get('/add', function(req, res) {
   res.render('add', {item: {}, user: req.user});
 });
@@ -70,6 +130,7 @@ router.route('/:item_id')
     Item.findById(item_id, function(err, c) {
       item = c;
       next();
+    console.log(item)
     });
   })
 
@@ -111,7 +172,24 @@ router.route('/:item_id/edit')
     item.description = req.body.description;
     item.category = req.body.category;
     item.status = req.body.status;
-    item.imageUrl = req.body.imageUrl;
+    item.imageUrl1 = req.body.imageUrl1;
+    item.imageUrl2 = req.body.imageUrl2;
+    item.imageUrl3 = req.body.imageUrl3;
+    item.editorname = req.body.editorname;
+    item.editorfirst_name = req.body.editorfirst_name;
+    item.editorlast_name = req.body.editorlast_name;
+    item.editoremail = req.body.editoremail;
+    item.editorcontact = req.body.editorcontact;
+    item.editorphoto = req.body.editorphoto;
+    item.editorschool = req.body.editorschool;
+    item.editorfacebook = req.body.editorfacebook;
+    editorfirst_name: req.body.editorfirst_name;
+    editorlast_name:req.body.editorlast_name;
+    editoremail: req.body.editoremail;
+    editorcontact: req.body.editorcontact;
+    editorphoto: req.body.editorphoto;
+    editorschool: req.body.editorschool;
+    editorfacebook: req.body.editorfacebook;
     // restaurant.contact = req.body.contact;
     // restaurant.zomato = req.body.zomato;
     // restaurant.photo = req.body.photo;

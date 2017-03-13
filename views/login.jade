@@ -3,26 +3,40 @@ extends loginlayout
 block content
   .js
     #preloader
-    form(role='form' action='/auth/login' method='post')
-      img.image-logo(src='/images/logo.png')
-      .group
-      .group
-        input(type='text' name='username')
-        span.highlight
-        span.bar
-        label Username
-      .group
-        input(type='password' name='password')
-        span.highlight
-        span.bar
-        label Password
-      button.button.buttonBlue(type='submit')
-        | Login
-        .ripples.buttonRipples
-          span.ripplesCircle
-      
-      a(href='/auth/register') 
-        i  Don't have an account? Register Now!
+    
+    nav
+    
+      ul 
+        
+       
+        li
+          a(href='/auth/login') 
+            strong LOG IN
+        li
+          a(href='/auth/register') 
+            strong SIGN UP
 
-   
+    .content
+      form(role='form' action='/auth/login' method='post')
+        img.image-logo(src='/images/logo.png')
+        .group
+        .group
+          input(type='text' name='username')
+          span.highlight
+          span.bar
+          label Username
+        .group
+          input(type='password' name='password')
+          span.highlight
+          span.bar
+          label Password
+        button.button.buttonBlue(type='submit')
+          | Login
+          .ripples.buttonRipples
+            span.ripplesCircle
+        
+        a(href='/auth/register') 
+          i  Don't have an account? Register Now!
+
+
     

@@ -63,7 +63,10 @@ block content
                     a(href='#') -View All-
 
               li
-                a(href='/profile')  @#{user.username}
+                if (user)
+                  a(href='/profile')  @#{user.username}
+                else
+                  a(href='/auth/login') Join Us Now!
                 ul
                   if (user)
                       li
@@ -103,20 +106,80 @@ block content
                 a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
         
         .content
-         .side_wrapper
-          section.about-dev
-            header.profile-card_header
-              .profile-card_header-container
-                .profile-card_header-imgbox
-                  img(src='#{user.photo}', alt='Profile Pic')
-                h1
-                  | #{user.username}
-                  span #{user.email}
-            .profile-card_about
-              h2 #{user.first_name} #{user.last_name}
-              p
-                | I'm an aspiring ruler of hoomans from Chicago, looking for my fur-ever home. I like treats and playing and treats. And treat            I'd do well in a home where hoomans give me lots of treats!
-              footer.profile-card_footer
-                .social-row
-                p
-                  a.back-to-profile(href='#') Edit Profile
+         
+
+          .container
+            .row
+              .col-md-12
+                .panel
+                  img.pic.img-circle(src='http://bootdey.com/img/Content/avatar/avatar1.png', alt='User photo')
+                  .username Username
+            .row
+              .col-md-3
+                .sidebar-nav
+                  .navbar.navbar-default(role='navigation')
+                    .navbar-header
+                      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-navbar-collapse')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                      span.visible-xs.navbar-brand Profile menu
+                    .navbar-collapse.collapse.sidebar-navbar-collapse
+                      ul.nav.navbar-nav
+                        li.active
+                          a(href='#') Profile
+                        li
+                          a(href='#') Edit profile
+                        li
+                          a(href='#') Change password
+              .col-md-9
+                span.profile-item-header  Edit profile:
+                .edit-profile
+                  form#editProfileForm(method='post')
+                    .form-group.row
+                      label.col-xs-3.form-control-label(for='firstName') First name
+                      .col-xs-9
+                        input#firstName.form-control(type='text', placeholder='Enter your first name')
+                    .form-group.row
+                      label.col-xs-3.form-control-label(for='lastName') Last name
+                      .col-xs-9
+                        input#lastName.form-control(type='text', placeholder='Enter your last name')
+                    .form-group.row
+                      label.col-xs-3.form-control-label Gender
+                      .col-xs-9.gender
+                        label.radio-inline
+                          input(type='radio', name='genderRadio', value='male', checked='checked')
+                          i.fa.fa-mars
+                          span Male
+                        label.radio-inline
+                          input(type='radio', name='genderRadio', value='female')
+                          i.fa.fa-venus
+                          span Female
+                        label.radio-inline
+                          input(type='radio', name='genderRadio', value='unknown')
+                          i.fa.fa-reddit-alien
+                          span Unknown
+                    .form-group.row
+                      label.col-xs-3.form-control-label(for='birth') Date of Birth
+                      .col-xs-9.date
+                        #birth.input-group.date
+                          input.form-control(type='text', readonly='')
+                          .input-group-addon
+                            span.glyphicon.glyphicon-calendar
+                    .form-group.row
+                      label.col-xs-3.form-control-label(for='Country') Country
+                      .col-xs-9
+                        select.form-control(name='country')
+                          option(label='Select your country')
+                          option(value='arabic') Arabic
+                          option(value='english') English
+                          option(value='french') French
+                          option(value='german') German
+                    .form-group.row
+                      label.col-xs-3.form-control-label(for='avatar') Choose avatar
+                      .col-xs-9
+                        input.file.file-loading(name='avatar', type='file', data-allowed-file-extensions='["png", "jpg"]')
+                    .col-xs-12.button-container
+                      input.btn.btn-default(type='submit', value='Save changes')
+                      input.btn.btn-default(type='reset', value='Reset changes')

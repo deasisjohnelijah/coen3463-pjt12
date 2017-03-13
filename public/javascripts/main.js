@@ -39,50 +39,50 @@
   localStorage.setItem("search", document.getElementById('search').value);
 }
 
-if (window.location.pathname === '/restaurants') {
+if (window.location.pathname === '/items') {
   
   if (localStorage.getItem("search") === 'null' || localStorage.getItem("search") === null) {
-      fetch('/api/v1/Restaurant/?sort=createdate').then(function(res) {
-        res.json().then(function(restaurants) {
-          console.log('restaurants', restaurants);
+      fetch('/api/v1/Item/?sort=name').then(function(res) {
+        res.json().then(function(items) {
+          console.log('items', items);
           var tbody = document.getElementById('table-body');
-          restaurants.forEach(function(restaurant) {
-            tbody.insertAdjacentHTML('beforeend', '<tr> <td><img src="'+ restaurant.photo + '" style="width:200px"></td> <td>  <a href="/restaurants/' + restaurant._id + '">' + restaurant.name + '</a></td> <td> ' + restaurant.address + '</td> <td>' + restaurant.cuisine + ' </td> <td><a href="'+ restaurant.zomato + '" target="_blank">' + restaurant.zomato + ' </td> </tr>');
+          items.forEach(function(item) {
+            tbody.insertAdjacentHTML('beforeend', '<tr> <td><img src="'+ item.imageUrl + '" style="max-width:150px"></td> <td>  <a href="/items/' + item._id + '">' + item.name + '</a></td> <td> ' + item.status + '</td> <td>' + item.sellername + ' </td> <td> ' + item.price + ' </td> </tr>');
 
           });
         })
       });
 
-      fetch('/api/v1/Restaurant/count').then(function(res) {
-        res.json().then(function(restaurants) {
-          console.log('restaurants', restaurants);
+      fetch('/api/v1/Item/count').then(function(res) {
+        res.json().then(function(items) {
+          console.log('items', items);
           var count = document.getElementById('count');
           
-            count.insertAdjacentHTML('beforeend', '<strong>Total number of Restaurants:  '+restaurants.count+'<strong>');
+            count.insertAdjacentHTML('beforeend', '<strong>Items to sell:  '+items.count+'<strong>');
         })
       });
   }   
 
   else {
 
-    fetch('/api/v1/Restaurant?query={"name":"~(' + localStorage.getItem("search") + ')"}').then(function(res) {
+    fetch('/api/v1/Item?query={"name":"~(' + localStorage.getItem("search") + ')"}').then(function(res) {
       res.json().then(function(result) {
         if (result.length === 0) {
           document.getElementById('findcount').innerHTML = " " + result.length +
-        " restaurant found";
+        " item found";
         }
         else if (result.length === 1) {
           document.getElementById('findcount').innerHTML = "There is " + result.length +
-        " restaurant found";
+        " item found";
         }
         else {
           document.getElementById('findcount').innerHTML = "There are " + result.length +
-        " restaurants found";
+        " items found";
         }
 
         var tbody = document.getElementById('table-body');
         result.forEach(function(result) {
-         tbody.insertAdjacentHTML('beforeend', '<tr> <td><img src="'+ result.photo + '" style="width:200px"></td> <td>  <a href="/restaurants/' + result._id + '">' + result.name + '</a></td> <td> ' + result.address + '</td> <td>' + result.cuisine + ' </td> <td><a href="'+ result.zomato + '" target="_blank">' + result.zomato + ' </td> </tr>' );
+         tbody.insertAdjacentHTML('beforeend', '<tr> <td><img src="'+ result.imageUrl + '" style="max-width:150px"></td> <td>  <a href="/items/' + result._id + '">' + result.name + '</a></td> <td> ' + result.status + '</td> <td>' + result.sellername + ' </td> <td> ' + result.price + ' </td> </tr>' );
 
         
   
