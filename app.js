@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var flash = require('connect-flash');
 
 const methodOverride = require('method-override');
@@ -58,7 +58,18 @@ app.use(passport.session());
 
 var User = require('./models/user');
 var Item = require('./models/items');
-passport.use(User.createStrategy());
+var FACEBOOK_APP_ID = '1846634275597047';
+var FACEBOOK_APP_SECRET = '45304e1d1d08f19c702cc9cc3aa432f9';
+var fbOpts = {
+    clientID: FACEBOOK_APP_ID,
+    clientSecret: FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  };
+var fbCallback = function(accessToken, refreshToken, profile, cb){
+
+};
+
+passport.use(new FacebookStrategy(fbOpts, fbCallback));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -100,6 +111,9 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+// Redirect the user to Facebook for authentication.  When complete,
+// Facebook will redirect the user back to the application at
+//     /auth/facebook/callback
 
 // error handler
 app.use(function(err, req, res, next) {
