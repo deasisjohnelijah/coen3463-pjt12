@@ -38,8 +38,11 @@ router.get('/facebook', passport.authenticate('facebook'));
 // access was granted, the user will be logged in.  Otherwise,
 // authentication has failed.
 router.get('/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/',
-                                      failureRedirect: '/login' }));
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req,res) {
+    res.redirect('/');
+  });
+
 router.get('/login-', function(req, res, next) {
   res.render('login-', {user: req.user});
 });
