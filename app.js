@@ -63,7 +63,7 @@ var FACEBOOK_APP_SECRET = '45304e1d1d08f19c702cc9cc3aa432f9';
 var fbOpts = {
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://coen3463pjt12.herokuapp.com/"
+    callbackURL: "http://coen3463pjt12.herokuapp.com/auth/facebook/callback"
   };
 var fbCallback = function(accessToken, refreshToken, profile, cb){
 
