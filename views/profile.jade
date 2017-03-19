@@ -107,17 +107,36 @@ block content
         
         .content
          header.profile-card_header
+                  if (user.facebook)
                         .profile-card_header-container
                           .profile-card_header-imgbox
                             img(src='#{user.photo}', alt='Profile Pic')
                           h1
                             | #{user.username}
                             span #{user.email}
-                      .profile-card_about
-                        h2 #{user.first_name} #{user.last_name}
-                        p
-                          i.fa.fa-facebook  
-                            a(href='#user.facebook', target='_blank') #{user.facebook}
-                          h6 SCHOOL: #{user.school}
-                          h6 CONTACT NO.: #{user.contact}
-                          h6 Contact me now if you want to buy the product!
+                          .profile-card_about
+                            h2 #{user.first_name} #{user.last_name}
+                            p
+                              i.fa.fa-facebook  
+                                a(href='#{user.facebook.profileUrl}', target='_blank') Go to Facebook Page
+                              h6 SCHOOL: #{user.school}
+                              h6 CONTACT NO.: #{user.facebook.contact}
+                              h6 Contact me now if you want to buy the product!
+                            hr
+                  else
+                        .profile-card_header-container
+                          .profile-card_header-imgbox
+                            img(src='#{user.photo}', alt='Profile Pic')
+                          h1
+                            |  #{user.username}
+                            span #{user.email}
+                          .profile-card_about
+                            h2 #{user.first_name} #{user.last_name}
+                            p
+                              i.fa.fa-facebook  
+                                a(href='#', target='_blank') Go to Facebook Page
+                              h6 SCHOOL: #{user.school}
+                              h6 CONTACT NO.: #{user.contact}
+                              h6 Contact me now if you want to buy the product!
+                            hr
+                      

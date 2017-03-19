@@ -43,3 +43,8 @@ nav ul li a {
 nav ul li a:hover {
   color: white;
 }
+button#facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+}

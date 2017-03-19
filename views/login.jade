@@ -17,8 +17,8 @@ block content
             strong SIGN UP
 
     .content
-      <a href="/login/facebook">Login with Facebook</a>
-      form(role='form' action='/login' method='post')
+      
+      form(role='form' action='/auth/login' method='post')
         img.image-logo(src='/images/logo.png')
         .group
         .group
@@ -35,11 +35,16 @@ block content
           | Login
           .ripples.buttonRipples
             span.ripplesCircle
-
-        
-        
         a(href='/auth/register') 
-          i  Don't have an account? Register Now!
+          i  Don't have an account? Register Now! 
+      form(role='form' action='/auth/login/facebook') 
+          button.facebook-btn.facebook-login
+            i.fa.fa-facebook(aria-hidden='true')
+            span login with facebook
+            
+        
+        
+        
 
 
     

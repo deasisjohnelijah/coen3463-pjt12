@@ -104,77 +104,150 @@ block content
                 |  Site: 
                 a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
         .content(style="margin-bottom:10%;")
-          #make-3D-space(style="")
-            #product-card
-              #product-front
-                .shadow
-                img(src='#{item.imageUrl1}', alt='', style='width:300px;margin-top:10%;')
-                .image_overlay
-                #view_details View details
-                .stats
-                  .stats-container
+            .container
+              .card
+                .product-rating
+                  i.fa.fa-shopping-cart(aria-hidden='true')
+                  
+                  span   Buy this Now!
+                h2.product-title #{item.name}
+              .card
+                .product-image-group
+                  img.product-image-main(src='#{item.imageUrl1}', alt='')
+                  .secondary-image-group
+                    img.product-image-secondary(src='#{item.imageUrl1}', alt='')
+                    img.product-image-secondary(src='#{item.imageUrl1}', alt='')
+              .card
+                .ribbon
+                  i.fa.fa-dollar(aria-hidden='true')
+                  |  Price
+                .price
+                  | #{item.price}
+                  span  
+                
+              .card
+                strong Description:
+                p
+                  | #{item.description}
+                hr
+                .split
+                  span Category: 
+                  span #{item.category}
+                hr
+                .split
+                  span Status:
+                  span #{item.status}
+                hr
+                .split
+                  span Date Posted:
+                  span #{moment(item.createdate).format("LLL")}
+                hr
+                if user.username == item.sellername
+                  a(href='/items/' + item._id+'/edit')
+                    button.product-docs
+                      i.fa.fa-pencil-square-o(aria-hidden='true')
+                      |  Edit Item
+                  a(href='/items/' + item._id+'/delete')
+                    button.product-docs
+                      i.fa.fa-trash-o(aria-hidden='true')
+                      |  Delete Item
+                else
+                
+              .card
+                .split
+                  strong Seller Details
+                  .product-rating
+                    i.fa.fa-user(aria-hidden='true')
+                    span  Profile
+                hr
+                img.img-responsive.circle-image.center-block(src="#{item.sellerphoto}" alt="Profile Pic")
+                h3
+                span  #{item.sellername}
+                hr
+                span Contact No.: #{item.sellercontact}
+                hr
+                span Full Name: #{item.sellerfirst_name} #{item.sellerlast_name}
+                hr
+                span Email Address: #{item.selleremail}
+                hr
+                span School: #{item.sellerschool}
+                hr
+                a(href='#{item.sellerfacebook}' target='_blank')
+                  button.write-review
+                    i.fa.fa-facebook(aria-hidden='true')
+                    |  Contact with Facebook
+
+          //- #make-3D-space(style="")
+          //-   #product-card
+          //-     #product-front
+          //-       .shadow
+          //-       img(src='#{item.imageUrl1}', alt='', style='width:300px;margin-top:10%;')
+          //-       .image_overlay
+          //-       #view_details View details
+          //-       .stats
+          //-         .stats-container
                     
-                    i.product_name.fa.fa-shopping-cart 
-                    span.product_price #{item.price}
-                    br
-                    h5.product_name #{item.name}
-                    p of: #{item.sellername}
-                    .product-options
-                      strong CATEGORY
-                      span #{item.category}
-                      strong STATUS
-                      span #{item.status}
-                      br
-                      if user.username == item.sellername
+          //-           i.product_name.fa.fa-shopping-cart 
+          //-           span.product_price #{item.price}
+          //-           br
+          //-           h5.product_name #{item.name}
+          //-           p of: #{item.sellername}
+          //-           .product-options
+          //-             strong CATEGORY
+          //-             span #{item.category}
+          //-             strong STATUS
+          //-             span #{item.status}
+          //-             br
+          //-             if user.username == item.sellername
                          
-                           a.w3-btn.w3-large.w3-padding(href='/items/' + item._id+'/edit') EDIT ITEM
+          //-                  a.w3-btn.w3-large.w3-padding(href='/items/' + item._id+'/edit') EDIT ITEM
                            
-                      else
+          //-             else
                          
 
-              #product-back
-                .shadow
-                #carousel
-                  ul
-                    li
-                      img(src='#{item.imageUrl1}', alt='', style='width:300px;margin-top:10%;')
-                      img(src='#{item.imageUrl2}', alt='', style='width:300px;margin-top:10%;')
-                    li.w3-center
-                      img(src='#{item.imageUrl3}', alt='', style='width:300px;margin-top:10%;')
-                      h3 DESCRIPTION
-                      h5 #{item.description}
+          //-     #product-back
+          //-       .shadow
+          //-       #carousel
+          //-         ul
+          //-           li
+          //-             img(src='#{item.imageUrl1}', alt='', style='width:300px;margin-top:10%;')
+          //-             img(src='#{item.imageUrl2}', alt='', style='width:300px;margin-top:10%;')
+          //-           li.w3-center
+          //-             img(src='#{item.imageUrl3}', alt='', style='width:300px;margin-top:10%;')
+          //-             h3 DESCRIPTION
+          //-             h5 #{item.description}
 
-                    li
-                      h3.w3-orange.w3-center SELLER DETAILS
-                      header.profile-card_header
-                        .profile-card_header-container
-                          .profile-card_header-imgbox
-                            img(src='#{item.sellerphoto}', alt='Profile Pic')
-                          h1
-                            | #{item.sellername}
-                            span #{item.selleremail}
-                      .profile-card_about
-                        h2 #{item.sellerfirst_name} #{item.sellerlast_name}
-                        p
-                          i.fa.fa-facebook  
-                            a(href='#item.sellerfacebook', target='_blank') #{item.sellerfacebook}
-                          h6 SCHOOL: #{item.sellerschool}
-                          h6 CONTACT NO.: #{item.sellercontact}
-                          h6 Contact me now if you want to buy the product!
-                        p.w3-center
-                          if user.username == item.sellername
+          //-           li
+          //-             h3.w3-orange.w3-center SELLER DETAILS
+          //-             header.profile-card_header
+          //-               .profile-card_header-container
+          //-                 .profile-card_header-imgbox
+          //-                   img(src='#{item.sellerphoto}', alt='Profile Pic')
+          //-                 h1
+          //-                   | #{item.sellername}
+          //-                   span #{item.selleremail}
+          //-             .profile-card_about
+          //-               h2 #{item.sellerfirst_name} #{item.sellerlast_name}
+          //-               p
+          //-                 i.fa.fa-facebook  
+          //-                   a(href='#item.sellerfacebook', target='_blank') #{item.sellerfacebook}
+          //-                 h6 SCHOOL: #{item.sellerschool}
+          //-                 h6 CONTACT NO.: #{item.sellercontact}
+          //-                 h6 Contact me now if you want to buy the product!
+          //-               p.w3-center
+          //-                 if user.username == item.sellername
                          
-                           a.w3-btn.w3-large.w3-padding(href='/items/' + item._id+'/delete') DELETE ITEM
+          //-                  a.w3-btn.w3-large.w3-padding(href='/items/' + item._id+'/delete') DELETE ITEM
                            
-                          else
+          //-                 else
 
-                  .arrows-perspective
-                    .carouselPrev
-                      .y
-                      .x
-                    .carouselNext
-                      .y
-                      .x
-                #flip-back
-                  #cy
-                  #cx
+          //-         .arrows-perspective
+          //-           .carouselPrev
+          //-             .y
+          //-             .x
+          //-           .carouselNext
+          //-             .y
+          //-             .x
+          //-       #flip-back
+          //-         #cy
+          //-         #cx

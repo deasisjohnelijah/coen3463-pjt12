@@ -17,6 +17,7 @@ block content
             strong SIGN UP
 
     .content
+      
       form(role='form' action='/auth/login' method='post')
         img.image-logo(src='/images/logo.png')
         .group.w3-center
@@ -39,7 +40,13 @@ block content
             span.ripplesCircle
         
         a(href='/auth/register') 
-          i  Don't have an account? Register Now!
+          i  Don't have an account? Register Now! or
+      form(role='form' action='/auth/login/facebook') 
+          button.facebook-btn.facebook-login
+            i.fa.fa-facebook(aria-hidden='true')
+            span login with facebook
+       
+        
 
      
     

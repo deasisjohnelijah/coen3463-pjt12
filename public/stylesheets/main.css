@@ -758,3 +758,191 @@ div.col-xs-4 { border: 1px solid red;}
   border-radius: 10px;
 }
 
+.container {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.card {
+	margin-top: 10px;
+	background: #f5f5f5;
+	display: inline-block;
+	width: 100%;
+	padding: 10px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, .3), inset 2px 2px 2px white, inset -2px -2px 2px rgba(0, 0, 0, .1);
+	z-index: 2;
+}
+
+.product-rating {
+	text-align: right;
+}
+
+.product-rating i {
+	color: #ee9432;
+}
+
+.product-image-group {
+	display: flex;
+	align-items: flex-start;
+}
+
+.secondary-image-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.secondary-image-group img:first-child {
+	margin-bottom: 10px;
+}
+
+.product-image-main {
+	padding-right: 10px;
+	width: 68.4%;
+}
+
+.product-image-secondary {
+	width: 100%;
+}
+
+.ribbon {
+	background: #ee9432;
+	color: white;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+	position: relative;
+	float: right;
+	right: -11px;
+	height: 28px;
+	width: 150px;
+	display: inline-block;
+	border-right: 2px solid rgba(0, 0, 0, .15);
+	box-shadow: 0 2px 0 rgba(0, 0, 0, .4);
+	z-index: 3;
+}
+
+.ribbon i {
+	margin-top: 7px;
+}
+
+.ribbon:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: -28px;
+	border: 14px solid #ee9432;
+	border-left: 14px solid transparent;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, .4);
+	z-index: -2;
+}
+
+.price {
+	clear: both;
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.price span {
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
+.addToCart {
+	margin-top: 5px;
+	float: right;
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: white;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+	background-image: linear-gradient(#23b55c, #1c8c47);
+	border-radius: 4px;
+	width: 82%;
+	padding: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, .5);
+	border-right: 1px solid rgba(0, 0, 0, .5);
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .4);
+}
+
+.addToCart:hover {
+	background-image: linear-gradient(#2ec0f7, #2697c1);
+	cursor: pointer;
+}
+
+.addToCart-container input {
+	margin-top: 7px;
+	width: 16%;
+	height: 45px;
+	font-size: 1.2rem;
+	padding: 10px;
+	float: left;
+	text-align: center;
+	border-radius: 3px;
+	border-top: 1px solid rgba(0, 0, 0, .5);
+	border-left: 1px solid rgba(0, 0, 0, .5);
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+	box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .4);
+}
+
+.split {
+	display: flex;
+	justify-content: space-between;
+}
+
+.product-docs {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 5px;
+	color: white;
+	background-image: linear-gradient(#2f4f4e, #233a39);
+	border-radius: 3px;
+	border-bottom: 1px solid rgba(0, 0, 0, 1);
+	border-right: 1px solid rgba(0, 0, 0, 1);
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .4);
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 1);
+}
+
+.product-docs:hover {
+	background-image: linear-gradient(#477372, #2f4f4e);
+	cursor: pointer;
+}
+
+.review-date {
+	display: block;
+	text-align: right;
+}
+
+.write-review {
+	background-image: linear-gradient(#ee9432, #bb7428);
+	width: 100%;
+	padding: 10px;
+	color: white;
+	border-radius: 3px;
+	border-bottom: 1px solid rgba(0, 0, 0, .5);
+	border-right: 1px solid rgba(0, 0, 0, .5);
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .4);
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+}
+
+.write-review:hover {
+	background-image: linear-gradient(#ff9e35, #d2832c);
+	cursor: pointer;
+}
+
+.circle-image {
+  border-style: solid;
+  border-radius: 50%;
+  width: 220px;
+}
+
+button#facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+}

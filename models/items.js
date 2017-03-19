@@ -72,7 +72,7 @@ var ItemSchema = new Schema({
   },
   sellerfacebook:{
     type: String,
-    default: 'None specified'
+    default: 'www.facebook.com'
   }, 
   createdate: {
 
