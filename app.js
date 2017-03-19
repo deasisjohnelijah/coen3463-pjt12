@@ -70,7 +70,7 @@ var CLIENT_SECRET = '45304e1d1d08f19c702cc9cc3aa432f9';
 passport.use(new FacebookStrategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/login/facebook/return',
+    callbackURL: 'http://coen3463pjt12.herokuapp.com/auth/login/facebook/return',
     profileFields: ['id','displayName','photos','email','profileUrl']
   },
   function(accessToken, refreshToken, profile, done) {
