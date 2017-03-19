@@ -174,7 +174,7 @@ block content
                     input.w3-orange(type='hidden', name='sellerlast_name', value='#{user.last_name}', readonly)
                     input.w3-orange(type='hidden', name='sellerphoto', value='#{user.photo}', readonly)
                     input.w3-orange(type='hidden', name='sellerschool', value='#{user.school}', readonly)
-                    input.w3-orange(type='hidden', name='sellerfacebook', value='#{user.facebook}', readonly)
+                    input.w3-orange(type='hidden', name='sellerfacebook', value='#{user.facebook.profileUrl}', readonly)
                 
                 h2.w3-text-red #{error}
 

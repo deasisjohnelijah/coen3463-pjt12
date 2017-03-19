@@ -31,7 +31,7 @@ router.get('/login',
   });
 
 router.get('/login/facebook',
-  passport.authenticate('facebook', {scope: 'email'}));
+  passport.authenticate('facebook', {scope: ['email']}));
 
 router.get('/login/facebook/return', 
   passport.authenticate('facebook', { failureRedirect: '/auth/login' }),

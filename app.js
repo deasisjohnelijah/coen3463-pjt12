@@ -87,7 +87,7 @@ passport.use(new FacebookStrategy({
               var newUser = new User();
               newUser.username = profile.displayName;
               newUser.contact = profile.emails[0].value;
-              newUser.email = profile.emails[0].value;
+              newUser.facebook.email = profile.emails[0].value;
               newUser.facebook.id = profile.id;
               newUser.facebook.token = accessToken;
               newUser.facebook.name = profile.displayName;
