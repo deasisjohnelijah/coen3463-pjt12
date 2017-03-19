@@ -63,14 +63,13 @@ var FACEBOOK_APP_SECRET = '45304e1d1d08f19c702cc9cc3aa432f9';
 var fbOpts = {
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://coen3463pjt12.herokuapp.com/auth/facebook/callback"
+    callbackURL: "http://coen3463pjt12.herokuapp.com/auth/login/facebook/callback"
   };
 var fbCallback = function(accessToken, refreshToken, profile, cb){
 
 };
 
 passport.use(new FacebookStrategy(fbOpts, fbCallback));
-
 
 
 passport.serializeUser(User.serializeUser());
@@ -95,18 +94,6 @@ app.use(router);
 app.use('/', index);
 app.use('/auth/', auth);
 app.use('/items/', items);
-
-app.get('/auth/facebook', passport.authenticate('facebook'));
-
-// Facebook will redirect the user to this URL after approval.  Finish the
-// authentication process by attempting to obtain an access token.  If
-// access was granted, the user will be logged in.  Otherwise,
-// authentication has failed.
-app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req,res) {
-    res.redirect('/');
-  });
 
 app.get('/search', function(req, res){
 
