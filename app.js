@@ -63,14 +63,13 @@ var FACEBOOK_APP_SECRET = '45304e1d1d08f19c702cc9cc3aa432f9';
 var fbOpts = {
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://coen3463pjt12.herokuapp.com/login/facebook/return"
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
   };
 var fbCallback = function(accessToken, refreshToken, profile, cb){
 
 };
 
 passport.use(new FacebookStrategy(fbOpts, fbCallback));
-
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -96,41 +95,10 @@ app.use('/auth/', auth);
 app.use('/items/', items);
 
 app.get('/search', function(req, res){
+
   res.render('search');
+
 });
-
-app.get('/',
-  function(req, res) {
-    res.render('home', { user: req.user });
-  });
-
-
-
-app.get('/login',
-  function(req, res){
-    res.render('login');
-  });
-
-
-
-app.get('/login/facebook',
-  passport.authenticate('facebook'));
-
-
-
-app.get('/login/facebook/return', 
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
-  });
-
-
-
-app.get('/profile',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function(req, res){
-    res.render('profile', { user: req.user });
-  });
 // app.get('/home', function(req, res) {
 //   res.render('home');
 // });
