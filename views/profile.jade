@@ -3,6 +3,7 @@ extends layout
 block content
     .js
         #preloader
+        input#seller(type='hidden', value='#{user.username}')
         img.w3-display.left(src='/images/newicon.png' style='height:60px;width:150px;margin-left:50px;position:absolute;')
         nav
         
@@ -106,7 +107,9 @@ block content
                 a(href='http://mario-loncarek.from.hr/') mario-loncarek.from.hr
         
         .content
+         input#seller(type='hidden', value='#{user.username}')
          header.profile-card_header
+
                   if (user.facebook)
                         .profile-card_header-container
                           .profile-card_header-imgbox
@@ -123,6 +126,9 @@ block content
                               h6 CONTACT NO.: #{user.facebook.contact}
                               h6 Contact me now if you want to buy the product!
                             hr
+                        h1 ITEMS SOLD
+                       
+                        #table-body.wrapper
                   else
                         .profile-card_header-container
                           .profile-card_header-imgbox
@@ -139,4 +145,7 @@ block content
                               h6 CONTACT NO.: #{user.contact}
                               h6 Contact me now if you want to buy the product!
                             hr
-                      
+                        h1 ITEMS SOLD
+                       
+                        #table-body.wrapper
+                                
