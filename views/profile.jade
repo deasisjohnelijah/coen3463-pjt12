@@ -27,7 +27,7 @@ block content
           .wrap
             ul.wrap-nav
               li
-                a(href='#') About
+                a(href='/items/add') Sell an Item
                 ul
                   li
                     a(href='#') About Us
@@ -76,7 +76,7 @@ block content
                           .profile-card_header-imgbox
                              img(src='#{user.photo}' style='height:100px;width:140px;')
                       li
-                        a(href='#') Edit Profile
+                        a(href='/profile') View Profile
                       li
                         a(href='/auth/logout') Logout
                   else
@@ -118,7 +118,7 @@ block content
                             | #{user.username}
                             span #{user.email}
                           .profile-card_about
-                            h2 #{user.first_name} #{user.last_name}
+                            h2 Hello #{user.username}!
                             p
                               i.fa.fa-facebook  
                                 a(href='#{user.facebook.profileUrl}', target='_blank') Go to Facebook Page
@@ -137,7 +137,7 @@ block content
                             |  #{user.username}
                             span #{user.email}
                           .profile-card_about
-                            h2 #{user.first_name} #{user.last_name}
+                            h2 Hello #{user.username}!
                             p
                               i.fa.fa-facebook  
                                 a(href='#', target='_blank') Go to Facebook Page
