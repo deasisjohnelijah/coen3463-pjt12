@@ -44,11 +44,6 @@ router.post('/login',
     res.redirect('/');
   });
 
-router.get('/profile', function(req, res, next) {
-  res.render('profile', {user: req.user});
-});
-
-
 
 router.get('/login-', function(req, res, next) {
   res.render('login-', {user: req.user});

@@ -19,6 +19,58 @@ router.get('/', function(req, res) {
   })
 });
 
+router.get('/motors', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/microcontrollers', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/sensors', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/tools', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/cb', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/electronic', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/electrical', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/kits', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/projects', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/others', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+
+
 router.post('/', function(req, res){ 
   res.redirect('/items') 
 }); 
