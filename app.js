@@ -70,7 +70,7 @@ var CLIENT_SECRET = '45304e1d1d08f19c702cc9cc3aa432f9';
 passport.use(new FacebookStrategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
-    callbackURL: 'http://coen3463pjt12.herokuapp.com/auth/login/facebook/return',
+    callbackURL: 'http://localhost:3000/auth/login/facebook/return',
     profileFields: ['id','displayName','photos','email','profileUrl']
   },
   function(accessToken, refreshToken, profile, done) {
@@ -87,12 +87,12 @@ passport.use(new FacebookStrategy({
               var newUser = new User();
               newUser.username = profile.displayName;
               newUser.contact = profile.emails[0].value;
-              newUser.facebook.email = profile.emails[0].value;
+              newUser.email = profile.emails[0].value;
+              newUser.photo = 'https://img.clipartfest.com/5f501c692bb9c6782efc7af0f4bcf349_facebook-icon-circle-vector-facebook-logo_512-512.png';
               newUser.facebook.id = profile.id;
               newUser.facebook.token = accessToken;
-              newUser.facebook.name = profile.displayName;
-              newUser.facebook.email = profile.emails[0].value;
-              newUser.facebook.profileUrl = profile.profileUrl;
+              newUser.name = profile.displayName;
+              newUser.fb = profile.profileUrl;
 
               newUser.save(function(err){
                 if(err)

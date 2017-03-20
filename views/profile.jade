@@ -121,26 +121,7 @@ block content
                             h2 Hello #{user.username}!
                             p
                               i.fa.fa-facebook  
-                                a(href='#{user.facebook.profileUrl}', target='_blank') Go to Facebook Page
-                              h6 SCHOOL: #{user.school}
-                              h6 CONTACT NO.: #{user.facebook.contact}
-                              h6 Contact me now if you want to buy the product!
-                            hr
-                        h1 ITEMS SOLD
-                       
-                        #table-body.wrapper
-                  else
-                        .profile-card_header-container
-                          .profile-card_header-imgbox
-                            img(src='#{user.photo}', alt='Profile Pic')
-                          h1
-                            |  #{user.username}
-                            span #{user.email}
-                          .profile-card_about
-                            h2 Hello #{user.username}!
-                            p
-                              i.fa.fa-facebook  
-                                a(href='#', target='_blank') Go to Facebook Page
+                                a(href='#{user.fb}', target='_blank') Go to Facebook Page
                               h6 SCHOOL: #{user.school}
                               h6 CONTACT NO.: #{user.contact}
                               h6 Contact me now if you want to buy the product!
@@ -148,4 +129,5 @@ block content
                         h1 ITEMS SOLD
                        
                         #table-body.wrapper
+                  
                                 

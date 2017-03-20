@@ -33,16 +33,11 @@ var userSchema = new Schema({
     type: String,
     default: 'https://mbevivino.files.wordpress.com/2011/08/silhouette_orange.jpg'
   },
+  fb: String,
   facebook: {
     id: String,
     token: String,
-    email: String,
-    name: String,
-    profileUrl: {
-      type: String,
-      default: '#'
-    }
-  },
+    },
 
 	email: {
 		type: String,

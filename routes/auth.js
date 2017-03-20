@@ -9,7 +9,7 @@ router.route('/register')
     res.render('register', {});
   })
   .post(function(req, res, next) {
-    User.register(new User({username: req.body.username, email:req.body.email,contact:req.body.contact, school:req.body.school, facebook:req.body.facebook,first_name:req.body.first_name,last_name:req.body.last_name}),req.body.password, function(err, account) {
+    User.register(new User({username: req.body.username, email:req.body.email,contact:req.body.contact, school:req.body.school, facebook:req.body.facebook, fb:req.body.fb, photo: req.body.photo,}),req.body.password, function(err, account) {
       if(err) {
         console.log(err)
         return res.render('register', {error: err, account: account});
