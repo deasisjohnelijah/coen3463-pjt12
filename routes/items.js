@@ -39,7 +39,12 @@ router.get('/tools', function(req, res) {
     res.render('items', {items: items, user: req.user});
   })
 });
-router.get('/cb', function(req, res) {
+router.get('/ic', function(req, res) {
+  Item.find( function(err, items, count) {
+    res.render('items', {items: items, user: req.user});
+  })
+});
+router.get('/cboards', function(req, res) {
   Item.find( function(err, items, count) {
     res.render('items', {items: items, user: req.user});
   })
