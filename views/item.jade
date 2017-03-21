@@ -176,8 +176,7 @@ block content
                 hr
                 div.fb-share-button(data-href='http://coen3463pjt12.herokuapp.com/items/'+ item._id +'' data-layout="button" data-size="large" data-mobile-iframe="true")
                   a.fb-xfbml-parse-ignore(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse")  Share
-                script(src="//www.powr.io/powr.js" external-type="html") 
-                #e7ad5138_1490081212004.powr-comments(data-href='http://coen3463pjt12.herokuapp.com/items/'+ item._id +'')
+                div.fb-comments(data-href='http://localhost:3000/items/'+ item._id +'' data-numposts="5" data-colorsheme="dark")
 
           //- #make-3D-space(style="")
           //-   #product-card
